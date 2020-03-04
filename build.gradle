@@ -1,0 +1,64 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+    id "jacoco"//The JaCoCo plugin provides code coverage metrics for Java code
+    id "checkstyle"//The Checkstyle plugin performs quality checks on your project’s Java source files using Checkstyle and generates reports from these checks.
+    id "pmd"//The PMD plugin performs quality checks on your project’s Java source files using PMD and generates reports from these checks.
+    id "org.owasp.dependencycheck" version "5.2.4"//A software composition analysis plugin that identifies known vulnerable dependencies used by the project.
+}
+
+group 'com.ligz'
+version '1.0.0'
+sourceCompatibility = 1.8
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+"cp pre-push.sh .git/hooks/pre-push".execute()
+"chmod 744 .git/hooks/pre-push".execute()
+
+checkstyle {
+    sourceSets = [project.sourceSets.main]
+}
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+pmd {
+    toolVersion = "6.8.0"
+    ruleSetFiles = files('config/pmd-ruleSets.xml')
+    ruleSets = []
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "io.rest-assured:spring-mock-mvc"
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.mockito:mockito-junit-jupiter:2.26.0'
+
+    implementation 'ch.vorburger.mariaDB4j:mariaDB4j:2.3.0'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.2.5'
+
+    runtimeOnly 'mysql:mysql-connector-java:5.1.48'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}

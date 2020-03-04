@@ -1,0 +1,35 @@
+version: '3'
+services:
+  # 指定服务名称
+  db:
+    # 指定服务使用的镜像
+    image: mysql:5.7
+    # 指定容器名称
+    container_name: qnDB
+    # 指定服务运行的端口
+    ports:
+      - 13306:3306
+    # 指定容器中需要挂载的文件
+    volumes:
+      - "./db:/var/lib/mysql"
+      - "./conf/my.cnf:/etc/my.cnf"
+      - "./init:/docker-entrypoint-initdb.d/"
+    # 指定容器的环境变量
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  # 指定服务名称
+  questionnaire:
+    # 指定服务使用的镜像
+    image: esmusssein777/questionnaire:1.0-SNAPSHOT
+    # 指定容器名称
+    container_name: questionnaire
+    # 指定服务运行的端口
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/questionnaire?characterEncoding=UTF-8&connectionCollation=utf8mb4_bin
+    # 指定容器中需要挂载的文件
+    volumes:
+      - $PWD/mydata/app/questionnaire/logs:/var/logs
+    depends_on:
+      - db

@@ -1,0 +1,205 @@
+{
+	"id": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+	"name": "questionnaire",
+	"description": "",
+	"order": [
+		"dafa5063-d71c-f28e-8b03-ce5ab23f935a",
+		"734e9dd4-61b7-5d89-b11b-7b6ca6907b27",
+		"379b5d62-fa28-00c7-88c8-39009bf80bcc",
+		"80b8a294-cd2a-2d65-dc03-cf0fbd447ab0",
+		"1ca70742-af96-223b-1055-1796e75267c1",
+		"65ae062c-68b0-3410-954a-9e6c1898884d"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1583308310678,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "1ca70742-af96-223b-1055-1796e75267c1",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/paper/get-all-paper-question",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": null,
+			"dataMode": "params",
+			"name": "获取所有的问题",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583309463745,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "379b5d62-fa28-00c7-88c8-39009bf80bcc",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/paper/get?paperId=115",
+			"queryParams": [
+				{
+					"key": "paperId",
+					"value": "115",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": null,
+			"dataMode": "params",
+			"name": "获取问卷信息",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583309358205,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "65ae062c-68b0-3410-954a-9e6c1898884d",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/paper/update-status",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": [
+				{
+					"key": "paperId",
+					"value": "115",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "修改问卷发布状态",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583309600142,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "734e9dd4-61b7-5d89-b11b-7b6ca6907b27",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/answer/reply",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": [],
+			"dataMode": "raw",
+			"name": "回答问卷",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583309263658,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "[\n\t{\n\t\t\"paperId\": 115,\n\t\t\"questionId\": 116,\n\t\t\"questionType\": 2,\n\t\t\"answerContent\": \"回答测试问题1\"\n\t},{\n\t\t\"paperId\": 115,\n\t\t\"questionId\": 117,\n\t\t\"questionType\": 2,\n\t\t\"answerContent\": \"回答测试问题2\"\n\t},{\n\t\t\"paperId\": 115,\n\t\t\"questionId\": 118,\n\t\t\"questionType\": 2,\n\t\t\"answerContent\": \"回答测试问题3\"\n\t}\n]"
+		},
+		{
+			"id": "80b8a294-cd2a-2d65-dc03-cf0fbd447ab0",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/paper/get-answer?paperId=115",
+			"queryParams": [
+				{
+					"key": "paperId",
+					"value": "115",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": null,
+			"dataMode": "params",
+			"name": "获取问卷的所有答案",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583309403532,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "dafa5063-d71c-f28e-8b03-ce5ab23f935a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/paper/create",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "6a0fb1b2-62c8-56ce-c37e-c77019f518ba",
+			"data": [],
+			"dataMode": "raw",
+			"name": "创建问卷",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1583308993289,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"title\": \"测试问卷1\",\n\t\"startTime\": \"1583045113\",\n\t\"endTime\": \"1583131513\",\n\t\"questions\": [\n\t\t{\n\t\t\t\"questionTitle\": \"测试问题1\",\n\t\t\t\"questionType\": 2\n\t\t},\n\t\t{\n\t\t\t\"questionTitle\": \"测试问题2\",\n\t\t\t\"questionType\": 2\n\t\t},\n\t\t{\n\t\t\t\"questionTitle\": \"测试问题3\",\n\t\t\t\"questionType\": 2\n\t\t}\n\t]\n}"
+		}
+	]
+}
