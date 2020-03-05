@@ -34,9 +34,15 @@ docker logs id 查看日志
 docker ps 查看是否成功启动
 ```
 
+![docker容器](https://github.com/esmusssein777/questionnaire/blob/master/png/docker.png?raw=true)
+
+
+
 打开 http://localhost:8080/swagger-ui.html#/ 
 
-可以看到下图
+可以看到下图 
+
+![Swagger](https://github.com/esmusssein777/questionnaire/blob/master/png/swaggerAPI.png?raw=true)
 
 2. 停止所有服务 `docker-compose stop`
 
